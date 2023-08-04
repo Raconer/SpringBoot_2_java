@@ -6,9 +6,9 @@ logging:
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://localhost:3306/contents?useSSL=false&characterEncoding=UTF-8
-    username: root
-    password: root
+    url: ENC(XN5lSt7y+AyhfL2alga1pRkU1SVl3nlU2qNiFk/joPP63PgEXggl5UsPI3XRogs+dz9mt0Q1JFMlCUJH2trIIYIVOaGdCjM0ECdOUwG/as3pATfynXAo6Q==)
+    username: ENC(bKRGejZpI8TMFjih7jxt1A==)
+    password: ENC(qE4NWADO/zcI0oK+NP9bwg==)
   sql:
     init:
       mode: always

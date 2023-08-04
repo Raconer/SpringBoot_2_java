@@ -7,11 +7,13 @@ import com.spring.java.core.utils.FakerUtil;
  */
 public class Product {
 
-    public static ProductDTO getData() {
-        return ProductDTO.builder()
-                .price(FakerUtil.getPrice(1000, 100000))
-                .name(FakerUtil.faker.name().name())
-                .regDate(FakerUtil.getPast())
-                .build();
-    }
+  public static ProductDTO getData() {
+
+    ProductDTO productDTO = new ProductDTO();
+    productDTO.setPrice(FakerUtil.getPrice(1000, 100000));
+    productDTO.setName(FakerUtil.faker.name().name());
+    productDTO.setRegDate(FakerUtil.getPast().atStartOfDay());
+
+    return productDTO;
+  }
 }

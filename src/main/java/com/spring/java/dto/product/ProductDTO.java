@@ -1,15 +1,14 @@
 package com.spring.java.dto.product;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
+import com.spring.java.dto.common.InfoDTO;
+import lombok.*;
 
-import java.time.LocalDate;
-
-@Builder
-@AllArgsConstructor
-public class ProductDTO {
+@Getter
+@Setter
+@RequiredArgsConstructor
+@ToString(callSuper = true)
+public class ProductDTO extends InfoDTO {
     private Integer id;
     private String  name;
     private int     price;
-    private LocalDate regDate;
 }

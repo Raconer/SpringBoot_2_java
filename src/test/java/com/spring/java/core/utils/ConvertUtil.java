@@ -17,4 +17,8 @@ public class ConvertUtil {
         return (HashMap<String, Object>) data.get("result");
     }
 
+    public static <T> T getResult(String resultStr, Class<T> clazz) throws JsonProcessingException {
+        return objectMapper.readValue(resultStr, clazz);
+    }
+
 }

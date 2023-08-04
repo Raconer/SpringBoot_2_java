@@ -1,5 +1,6 @@
 package com.spring.java.controller;
 
+import com.spring.java.dto.product.ProductDTO;
 import com.spring.java.service.ProductService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -15,7 +16,7 @@ public class ProductController {
 
   @GetMapping
   public ResponseEntity<?> get() {
-    int result = this.productService.get();
+    ProductDTO result = this.productService.get();
     return ResponseEntity.ok(result);
   }
 }
