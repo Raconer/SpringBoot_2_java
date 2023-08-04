@@ -3,3 +3,16 @@ server:
 jasypt:
   test:
     text: ENC(UnV7Nvd6BSjeLeDGzpBEU34E+IOluf9tUoYPmHwtx/0sPSC0mu4Brw==)
+spring:
+  datasource:
+    driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
+    url: jdbc:log4jdbc:mysql://localhost:3306/contents?useSSL=false&characterEncoding=UTF-8
+    username: root
+    password: root
+  sql:
+    init:
+      mode: always
+logging:
+  level:
+    root: info
+  config: classpath:logback.xml

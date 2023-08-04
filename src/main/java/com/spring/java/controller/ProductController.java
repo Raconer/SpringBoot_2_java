@@ -11,12 +11,11 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/product")
 @AllArgsConstructor
 public class ProductController {
-
   private ProductService productService;
 
   @GetMapping
   public ResponseEntity<?> get() {
-    this.productService.get();
-    return ResponseEntity.ok("Success");
+    int result = this.productService.get();
+    return ResponseEntity.ok(result);
   }
 }

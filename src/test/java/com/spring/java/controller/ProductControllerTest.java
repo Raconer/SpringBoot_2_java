@@ -25,10 +25,13 @@ class ProductControllerTest {
 
     // WHEN & THEN
     try {
+
       this.mockMvc
               .perform(MockMvcRequestBuilders.get(this.PATH))
               .andExpect(TestStatus.SUCCESS.matcher)
-              .andDo(MockMvcResultHandlers.print());
+              .andDo(MockMvcResultHandlers.print())
+              .andReturn();
+
     } catch (Exception e) {
       e.printStackTrace();
     }
