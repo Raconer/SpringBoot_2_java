@@ -19,12 +19,8 @@ dependencies {
 
     // SPRING
     implementation 'org.springframework.boot:spring-boot-starter-web'
-
     // Jasypt
-    // implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.5'
-
-    // DB
-    runtimeOnly 'com.mysql:mysql-connector-j'
+    implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.5'
 
     // Lombok
     compileOnly 'org.projectlombok:lombok'
@@ -37,4 +33,8 @@ dependencies {
 
 tasks.named('test') {
     useJUnitPlatform()
+}
+
+test {
+    systemProperty 'jasypt.encryptor.password', 'test'
 }
