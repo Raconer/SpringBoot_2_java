@@ -1,2 +1,5 @@
 server:
   port: 8090
+jasypt:
+  test:
+    text: ENC(UnV7Nvd6BSjeLeDGzpBEU34E+IOluf9tUoYPmHwtx/0sPSC0mu4Brw==)
