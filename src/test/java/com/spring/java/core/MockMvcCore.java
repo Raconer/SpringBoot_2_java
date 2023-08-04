@@ -10,16 +10,16 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 @Component
 public class MockMvcCore {
 
-    @Autowired
-    private MockMvc mockMvc;
+  @Autowired private MockMvc mockMvc;
 
-    public void perform(String path, TestStatus status) {
-        try {
-            this.mockMvc.perform(MockMvcRequestBuilders.get(path))
-                .andExpect(status.matcher).andDo(MockMvcResultHandlers.print());
-        }catch (Exception e){
-            e.printStackTrace();
-        }
-
+  public void perform(String path, TestStatus status) {
+    try {
+      this.mockMvc
+          .perform(MockMvcRequestBuilders.get(path))
+          .andExpect(status.matcher)
+          .andDo(MockMvcResultHandlers.print());
+    } catch (Exception e) {
+      e.printStackTrace();
     }
+  }
 }

@@ -12,17 +12,15 @@ import org.springframework.test.context.ActiveProfiles;
 @AutoConfigureMockMvc
 @ActiveProfiles({"test"})
 class ProductControllerTest {
-    private String PATH = "/product";
+  private String PATH = "/product";
 
-    @Autowired
-    private MockMvcCore mvcCore;
+  @Autowired private MockMvcCore mvcCore;
 
-    @Test
-    void get() {
-        // GIVEN
+  @Test
+  void get() {
+    // GIVEN
 
-        // WHEN & THEN
-        this.mvcCore.perform(this.PATH, TestStatus.SUCCESS);
-
-    }
+    // WHEN & THEN
+    this.mvcCore.perform(this.PATH, TestStatus.SUCCESS);
+  }
 }

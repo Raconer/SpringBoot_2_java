@@ -7,7 +7,7 @@ import com.spring.java.core.utils.FakerUtil;
  */
 public class Product {
 
-    public static ProductDTO getData(){
+    public static ProductDTO getData() {
         return ProductDTO.builder()
                 .price(FakerUtil.getPrice(1000, 100000))
                 .name(FakerUtil.faker.name().name())

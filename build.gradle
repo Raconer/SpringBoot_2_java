@@ -19,6 +19,14 @@ dependencies {
 
     // SPRING
     implementation 'org.springframework.boot:spring-boot-starter-web'
+
+    // Jasypt
+    // implementation 'com.github.ulisesbocchio:jasypt-spring-boot-starter:3.0.5'
+
+    // DB
+    runtimeOnly 'com.mysql:mysql-connector-j'
+
+    // Lombok
     compileOnly 'org.projectlombok:lombok'
     annotationProcessor 'org.projectlombok:lombok'
 
