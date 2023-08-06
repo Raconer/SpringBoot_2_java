@@ -1,6 +1,5 @@
 package com.spring.java.controller;
 
-import com.spring.java.common.enums.TestStatus;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -9,6 +8,7 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
+import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
 
 @SpringBootTest
 @AutoConfigureMockMvc
@@ -16,21 +16,16 @@ import org.springframework.test.web.servlet.result.MockMvcResultHandlers;
 class ProductControllerTest {
   private String PATH = "/product";
 
-  @Autowired
-  private MockMvc mockMvc;
+  @Autowired private MockMvc mockMvc;
 
   @Test
-  void get() {
+  void get() throws Exception {
     // GIVEN
 
     // WHEN & THEN
-    try {
-      this.mockMvc
-              .perform(MockMvcRequestBuilders.get(this.PATH))
-              .andExpect(TestStatus.SUCCESS.matcher)
-              .andDo(MockMvcResultHandlers.print());
-    } catch (Exception e) {
-      e.printStackTrace();
-    }
+    this.mockMvc
+        .perform(MockMvcRequestBuilders.get(this.PATH))
+        .andExpect(MockMvcResultMatchers.status().isOk())
+        .andDo(MockMvcResultHandlers.print());
   }
 }

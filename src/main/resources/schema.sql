@@ -1,7 +1,15 @@
-CREATE TABLE IF NOT EXISTS test(
+CREATE TABLE IF NOT EXISTS product(
     id INT UNSIGNED PRIMARY KEY auto_increment,
     `name` VARCHAR(100) NOT NULL,
     price INT NOT NULL DEFAULT 0,
+    reg_date TIMESTAMP
+);
+
+CREATE TABLE IF NOT EXISTS sign(
+    id VARCHAR(100) NOT NULL PRIMARY KEY,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    `name` VARCHAR(100) NOT NULL,
     reg_date TIMESTAMP
 );
 
