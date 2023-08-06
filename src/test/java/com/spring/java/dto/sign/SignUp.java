@@ -10,7 +10,7 @@ public class SignUp {
         return SignUpDTO.builder()
                 .email(FakerUtil.faker.internet().emailAddress())
                 .password(TEMP_PASSWORD)
-                .name(FakerUtil.faker.name().fullName())
+                .username(FakerUtil.faker.name().fullName())
                 .build();
     }
 
@@ -18,7 +18,7 @@ public class SignUp {
         return SignUpDTO.builder()
                 .email("")
                 .password("")
-                .name("")
+                .username("")
                 .build();
     }
 }

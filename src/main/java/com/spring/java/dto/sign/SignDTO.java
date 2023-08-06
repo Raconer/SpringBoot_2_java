@@ -1,10 +1,12 @@
 package com.spring.java.dto.sign;
 
+import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 
+@Setter
 public class SignDTO implements UserDetails {
   private String id;
   private String email;
