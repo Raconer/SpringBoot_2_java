@@ -3,3 +3,7 @@ server:
 jasypt:
   test:
     text: ENC(UnV7Nvd6BSjeLeDGzpBEU34E+IOluf9tUoYPmHwtx/0sPSC0mu4Brw==)
+common:
+  jwt:
+    secret_key: ENC(DGDse/tfdkF4gPvieNyHv4283D+ryqu3)
+    expire_time: 10000
