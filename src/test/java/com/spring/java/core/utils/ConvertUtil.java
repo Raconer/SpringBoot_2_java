@@ -30,9 +30,4 @@ public class ConvertUtil {
 
        return null;
     }
-
-    public static <T> T getResult(String resultStr, Class<T> clazz) throws JsonProcessingException {
-        return objectMapper.readValue(resultStr, clazz);
-    }
-
 }
