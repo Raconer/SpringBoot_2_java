@@ -1,6 +1,8 @@
 package com.spring.java.controller;
 
 import com.spring.java.core.utils.ConvertUtil;
+import com.spring.java.dto.sign.Sign;
+import com.spring.java.dto.sign.SignInDTO;
 import com.spring.java.dto.sign.SignUp;
 import com.spring.java.dto.sign.SignUpDTO;
 import org.junit.jupiter.api.DisplayName;
@@ -78,5 +80,53 @@ class SignControllerTest {
                 .content(jsonBody))
         .andExpect(MockMvcResultMatchers.status().isInternalServerError())
         .andDo(MockMvcResultHandlers.print());
+  }
+
+  @Test
+  @DisplayName("로그인 테스트")
+  void signIn() throws Exception {
+    // GIVEN
+    SignInDTO signInDTO = Sign.getData();
+    String jsonBody = ConvertUtil.getJsonString(signInDTO);
+    // WHEN & THEN
+    this.mockMvc
+            .perform(
+                    MockMvcRequestBuilders.post(this.PATH)
+                            .contentType(MediaType.APPLICATION_JSON_VALUE)
+                            .content(jsonBody))
+            .andExpect(MockMvcResultMatchers.status().isOk())
+            .andDo(MockMvcResultHandlers.print());
+  }
+
+  @Test
+  @DisplayName("로그인 테스트_잘못된 계정")
+  void signIn_NotFoundUser() throws Exception {
+    // GIVEN
+    SignInDTO signInDTO = Sign.getNotfoundUserData();
+    String jsonBody = ConvertUtil.getJsonString(signInDTO);
+    // WHEN & THEN
+    this.mockMvc
+            .perform(
+                    MockMvcRequestBuilders.post(this.PATH)
+                            .contentType(MediaType.APPLICATION_JSON_VALUE)
+                            .content(jsonBody))
+            .andExpect(MockMvcResultMatchers.status().isUnauthorized())
+            .andDo(MockMvcResultHandlers.print());
+  }
+
+  @Test
+  @DisplayName("로그인 테스트_잘못된 비밀번호")
+  void signIn_NotMatch_Password() throws Exception {
+    // GIVEN
+    SignInDTO signInDTO = Sign.getNotMatchPWData();
+    String jsonBody = ConvertUtil.getJsonString(signInDTO);
+    // WHEN & THEN
+    this.mockMvc
+            .perform(
+                    MockMvcRequestBuilders.post(this.PATH)
+                            .contentType(MediaType.APPLICATION_JSON_VALUE)
+                            .content(jsonBody))
+            .andExpect(MockMvcResultMatchers.status().isUnauthorized())
+            .andDo(MockMvcResultHandlers.print());
   }
 }

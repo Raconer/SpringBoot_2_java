@@ -5,6 +5,15 @@
     <insert id="insert" parameterType="SignDTO">
         INSERT INTO sign(id, email, password, username, reg_date)
         VALUES(#{id}, #{email}, #{password}, #{username}, #{regDate});
-
     </insert>
+    <!-- READ -->
+    <select id="get" parameterType="String" resultType="SignDTO">
+        SELECT id,
+               email,
+               password,
+               username,
+               reg_date
+        FROM sign
+        WHERE email = #{email}
+    </select>
 </mapper>

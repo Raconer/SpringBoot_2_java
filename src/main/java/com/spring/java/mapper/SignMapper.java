@@ -5,5 +5,9 @@ import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
 public interface SignMapper {
+    // CREATE
     int insert(SignDTO signDTO);
+
+    // READ
+    SignDTO get(String email);
 }

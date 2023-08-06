@@ -1,9 +1,9 @@
 package com.spring.java.dto.sign;
 
+import lombok.Builder;
+
 import javax.validation.constraints.Email;
 import javax.validation.constraints.NotEmpty;
-import lombok.*;
 
 @Builder
-public record SignUpDTO(
-    @NotEmpty @Email String email, @NotEmpty String password, @NotEmpty String username) {}
+public record SignInDTO(@NotEmpty @Email String email, @NotEmpty String password) {}

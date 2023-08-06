@@ -12,6 +12,8 @@ import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.authentication.BadCredentialsException;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.validation.BindException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -30,7 +32,16 @@ public class ControllerAdvice extends ResponseEntityExceptionHandler {
         logger.error("SQLIntegrityConstraintViolationException occurred: {}", ex.getMessage());
         return CommonRes.Except(HttpStatus.INTERNAL_SERVER_ERROR, ex.getMessage());
     }
+    @ExceptionHandler(UsernameNotFoundException.class)
+    public ResponseEntity<Object> handleUsernameNotFoundException(UsernameNotFoundException ex) {
+        logger.error("handleUsernameNotFoundException occurred: {}", ex.getMessage());
+        return CommonRes.Except(HttpStatus.UNAUTHORIZED, ex.getMessage());
+    }
 
+    @ExceptionHandler(BadCredentialsException.class)
+    public ResponseEntity<Object> handleBadCredentialsException(BadCredentialsException ex) {
+        return CommonRes.Except(HttpStatus.UNAUTHORIZED, ex.getMessage());
+    }
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex, HttpHeaders headers, HttpStatus status, WebRequest request) {
         List<ValidInfo> errorList = ex.getBindingResult().getFieldErrors().stream().map( it ->
