@@ -12,3 +12,7 @@ spring:
   sql:
     init:
       mode: always
+common:
+  jwt:
+    secret_key: ENC(B7fG6cE60meF84F+zLPkgmVanY1+wKuLxkFT5dyboQM=)
+    expire_time: 360000

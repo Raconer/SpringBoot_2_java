@@ -5,3 +5,11 @@ CREATE TABLE IF NOT EXISTS product(
     reg_date TIMESTAMP
 );
 
+CREATE TABLE IF NOT EXISTS sign(
+    id VARCHAR(100) NOT NULL PRIMARY KEY,
+    email VARCHAR(100) NOT NULL,
+    password VARCHAR(100) NOT NULL,
+    `name` VARCHAR(100) NOT NULL,
+    reg_date TIMESTAMP
+);
+
