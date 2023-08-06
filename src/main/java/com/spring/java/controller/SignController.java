@@ -7,6 +7,7 @@ import com.spring.java.dto.sign.map.SignMap;
 import com.spring.java.service.SignService;
 import javax.validation.Valid;
 import lombok.AllArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -23,9 +24,9 @@ public class SignController {
   @PostMapping("/up")
   public ResponseEntity<?> signUp(@RequestBody @Valid SignUpDTO signUpDTO) {
     SignDTO signDTO = SignMap.INSTANCE.signUpToSign(signUpDTO);
-
     this.signService.insert(signDTO);
 
-    return CommonRes.Def("SUCESS");
+    return CommonRes.Basic(HttpStatus.OK);
   }
+
 }
