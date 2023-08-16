@@ -35,13 +35,10 @@ public class JwtUtil {
         .compact();
   }
 
-  // TODO : 추후 사용자 데이터 수정
-  //  public String getClaims(String token){
-  //    if(!this.isValidate(token)){
-  //      throw new CustomAuthenticationException();
-  //    }
-  //    return null;
-  //  }
+  public Claims getData(String token) {
+    this.isValidate(token);
+    return Jwts.parser().setSigningKey(secretKey).parseClaimsJws(token).getBody();
+  }
 
   public Boolean isValidate(String token) {
     if (token == null) throw new CustomAuthenticationException("토큰이 Null 입니다.");
