@@ -90,14 +90,13 @@ class SignControllerTest {
     String jsonBody = ConvertUtil.getJsonString(signInDTO);
     // WHEN & THEN
     this.mockMvc
-            .perform(
-                    MockMvcRequestBuilders.post(this.PATH)
-                            .contentType(MediaType.APPLICATION_JSON_VALUE)
-                            .content(jsonBody))
-            .andExpect(MockMvcResultMatchers.status().isOk())
-            .andDo(MockMvcResultHandlers.print());
+        .perform(
+            MockMvcRequestBuilders.post(this.PATH)
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .content(jsonBody))
+        .andExpect(MockMvcResultMatchers.status().isOk())
+        .andDo(MockMvcResultHandlers.print());
   }
-
   @Test
   @DisplayName("로그인 테스트_잘못된 계정")
   void signIn_NotFoundUser() throws Exception {
@@ -106,12 +105,12 @@ class SignControllerTest {
     String jsonBody = ConvertUtil.getJsonString(signInDTO);
     // WHEN & THEN
     this.mockMvc
-            .perform(
-                    MockMvcRequestBuilders.post(this.PATH)
-                            .contentType(MediaType.APPLICATION_JSON_VALUE)
-                            .content(jsonBody))
-            .andExpect(MockMvcResultMatchers.status().isUnauthorized())
-            .andDo(MockMvcResultHandlers.print());
+        .perform(
+            MockMvcRequestBuilders.post(this.PATH)
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .content(jsonBody))
+        .andExpect(MockMvcResultMatchers.status().isUnauthorized())
+        .andDo(MockMvcResultHandlers.print());
   }
 
   @Test
@@ -122,11 +121,11 @@ class SignControllerTest {
     String jsonBody = ConvertUtil.getJsonString(signInDTO);
     // WHEN & THEN
     this.mockMvc
-            .perform(
-                    MockMvcRequestBuilders.post(this.PATH)
-                            .contentType(MediaType.APPLICATION_JSON_VALUE)
-                            .content(jsonBody))
-            .andExpect(MockMvcResultMatchers.status().isUnauthorized())
-            .andDo(MockMvcResultHandlers.print());
+        .perform(
+            MockMvcRequestBuilders.post(this.PATH)
+                .contentType(MediaType.APPLICATION_JSON_VALUE)
+                .content(jsonBody))
+        .andExpect(MockMvcResultMatchers.status().isUnauthorized())
+        .andDo(MockMvcResultHandlers.print());
   }
 }
